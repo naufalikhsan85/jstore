@@ -1,25 +1,29 @@
 
 /**
- * Write a description of class Jstore here.
+ * Write a description of class Database_Item here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class JStore
+public class Database_Item
 {
-    // instance variables - replace the example below with your own
+     // instance variables - replace the example below with your own
     private int x;
-    
-    public static void main(String [] args){
-    }
+    private String listItem;
 
     /**
-     * Constructor for objects of class JStore
+     * Constructor for objects of class Database_Item
      */
-    public JStore()
+    public Database_Item()
     {
         // initialise instance variables
         x = 0;
+    }
+    public void addItem(){
+    }
+    public void removeItem(){
+    }
+    public void getItemDatabase(){
     }
 
     /**

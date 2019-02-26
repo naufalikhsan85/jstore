@@ -7,7 +7,6 @@
  */
 public class Invoice
 {
-<<<<<<< HEAD
     // instance variables - replace the example below with your own
     private int x;
     protected int id;
@@ -60,62 +59,3 @@ public class Invoice
         return x + y;
     }
 }
-=======
-    protected int id;
-    protected int iditem;
-    protected String date;
-    protected int totalprice;
-
-
-    public Invoice()
-    {
-
-    }
-
-    public int getId()
-    {
-        return 0;
-    }
-    
-    public int getiditem()
-    {
-        return 0;
-    }
-    
-    public String getdate()
-    {
-        return "";
-    }
-    
-    public int gettotalPrice()
-    {
-        return 0;
-    }
-    
-   
-    public int setId(int id)
-    {
-        return 0;
-    }
-    
-    public int setidItem(int idItem)
-    {
-        return 0;
-    }
-    
-    public String setdate(String date)
-    {
-        return "";
-    }
-    
-    public int settotalPrice(int totalPrice)
-    {
-        return 0;
-    }
-    
-    public String setCategory(String category)
-    {
-        return "";
-    }
-}
->>>>>>> d359b91b709b33ac96a60484eb0e525bb346e6c7
