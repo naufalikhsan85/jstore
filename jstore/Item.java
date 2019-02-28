@@ -7,52 +7,68 @@
  */
 public class Item
 {
-<<<<<<< HEAD
     // instance variables - replace the example below with your own
     private int x;
-    protected int id;
-    protected String name;
-    protected int stock;
-    protected int price;
-    protected String category;
+    private int id;
+    private String name;
+    private int stock;
+    private int price;
+    private Supplier supplier;
+    private String category;
 
     /**
      * Constructor for objects of class Item
      */
-    public Item()
+    public Item(int id,String name,int stock,int price, String category)
     {
-        // initialise instance variables
-        x = 0;
+       this.id=id;
+       this.name=name;
+       this.stock=stock;
+       this.supplier=supplier;
+       this.category=category;
+       this.price=price; 
     }
     public int getId(){
-        return 0;
+        return id;
     }
     public String getName(){
-        return "";
+        return name;
     }
     public int getStock(){
-        return 0;
+        return stock;
     }
     public int getPrice(){
-        return 0;
+        return price;
     }
     public String getCategory(){
-        return "";
+        return category;
     }
-    public int setId(int id){
-        return 0;
+    public Supplier getSupplier(){
+        return supplier;
     }
-    public String setName(String name){
-        return "";
+    public void setId(int id){
+        this.id=id;
     }
-    public int setStock(int stock){
-        return 0;
+    public void setName(String name){
+        this.name=name;
     }
-    public int setPrice(int price){
-        return 0;
+    public void setStock(int stock){
+        this.stock=stock;
     }
-    public String setCategory(String category){
-        return "";
+    public void setPrice(int price){
+        this.price=price;
+    }
+    public void setCategory(String category){
+        this.category=category;
+    }
+     public void setSupplier(Supplier supplier)
+    {
+        this.supplier=supplier;
+    }
+    
+    public static void printData()
+    {
+        
     }
     
 
@@ -69,62 +85,4 @@ public class Item
     }
 }
 
-=======
-protected     int id;
-protected     string name;
-protected     int stock;
-protected     int price;
-protected     string category;    
 
-public item()
-{return 0
-}
-
-public int getId()
-{ return 0;
-}
-
-public string getName()
-{ return "";
-}
-
-
-public int getStock()
-{ return 0;
-}
-
-public int getPrice()
-{ return 0;
-}
-
-public string getCategory()
-{ return "";
-}
-
-
-public id int setId()
-{ return 0;
-}
-
-public setName(name:string)
-{ return "";
-}
-
-
-public setStock(stock:int)
-{ return 0;
-}
-
-public setPrice(price:int)
-{ return 0;
-}
-
-public SetCategory(category:string)
-{ return "";
-}
-
-
-
-}
-}
->>>>>>> d359b91b709b33ac96a60484eb0e525bb346e6c7

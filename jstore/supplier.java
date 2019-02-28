@@ -1,15 +1,10 @@
 
 /**
-<<<<<<< HEAD
  * Write a description of class Supplier here.
-=======
- * Write a description of class supplier here.
->>>>>>> d359b91b709b33ac96a60484eb0e525bb346e6c7
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-<<<<<<< HEAD
 public class Supplier
 {
     // instance variables - replace the example below with your own
@@ -19,93 +14,58 @@ public class Supplier
     protected String email;
     protected String phoneNumber;
     protected String city;
+    protected Location location;
 
     /**
      * Constructor for objects of class Supplier
      */
-    public Supplier()
+    public Supplier(int id,String name, String email,String phoneNumber,
+                    Location location)
     {
-        // initialise instance variables
-        x = 0;
+       this.location=location;
+       this.phoneNumber=phoneNumber;
+       this.email=email;
+       this.name=name;
+       this.id=id; 
     }
     public int getId(){
-        return 0;
+        return id;
     }
     public String getName(){
-        return "";
+        return name;
     }
     public String getEmail(){
-        return "";
+        return email;
     }
     public String getPhoneNumber(){
-        return "";
+        return phoneNumber;
     }
+    public Location getLocation(){
+        return location;
+    }
+    
     public String getCity(){
-        return "";
+        return city;
     }
-    public int setId(int id){
-        return 0;
+    public void setId(int id){
+        this.id=id;
     }
-    public String setName(String name){
-        return "";
+    public void setName(String name){
+        this.name=name;
     }
-    public String setEmail(String email){
-        return "";
+    public void setEmail(String email){
+        this.email=email;
     }
-    public String setPhoneNumber(String phoneNumber){
-        return "";
+    public void setPhoneNumber(String phoneNumber){
+        this.phoneNumber=phoneNumber;
     }
-    public String setCity(String city){
-        return "";
+    public void setLocation(Location location){
+        this.location=location;
     }
-=======
-public class supplier
-{
-    // instance variables - replace the example below with your own
-    private int id;
-private string name;
-private string email;
-private string phoneNumber;
-private string city;
-    /**
-     * Constructor for objects of class supplier
-     */
-public      supplier()
-{ return "";
-}
+     public void printData(){
 
-public    int getId()
-{ return 0;
-}
-
-public    string getName()
-{ return "";
-}
-public    string  getEmail()
-{ return "";
-}
-public    string  getPhoneNumber()
-{ return "";
-}
-
-public    string  getCity()
-{ return "";
-}
-public    setId(id:int)
-{ return 0;
-}
-
-public    setName(Name:string)
-{ return "";
-}
-public    setEmail(email:String)
-{ return "";
-}
-public    setPhoneNumber(phoneNumber:String)
-{ return "";
-}
-public    setCity(city:string)
->>>>>>> d359b91b709b33ac96a60484eb0e525bb346e6c7
+    }
+    
 
     /**
      * An example of a method - replace this comment with your own

@@ -7,46 +7,56 @@
  */
 public class Invoice
 {
-<<<<<<< HEAD
+
     // instance variables - replace the example below with your own
     private int x;
-    protected int id;
-    protected int idItem;
-    protected String date;
-    protected int totalPrice;
+    private int id;
+    private int idItem;
+    private String date;
+    private int totalPrice;
+    private Item item;
 
     /**
      * Constructor for objects of class Invoice
      */
-    public Invoice()
+    public Invoice(int id,Item item,String date,int totalPrice)
     {
-        // initialise instance variables
-        x = 0;
+      this.item=item;
+      this.totalPrice=totalPrice;
+      this.date=date;
+      this.id=id;  
     }
     public int getId(){
-        return 0;
+        return id;
     }
     public int getidIdItem(){
-        return 0;
+        return idItem;
     }
     public String getDate(){
-        return "";
+        return date;
     }
     public int getTotalPrice(){
-        return 0;
+        return totalPrice;
     }
-    public int setId(int id){
-        return 0;
+    public void setId(int id){
+        this.id=id;
     }
     public int setIdItem(int idItem){
-        return 0;
+        return idItem;
     }
-    public String setDate(String date){
-        return "";
+    public void setDate(String date){
+        this.date=date;
     }
-    public int setTotalPrice(int totalPrice){
-        return 0;
+    public void setTotalPrice(int totalPrice){
+        this.totalPrice=totalPrice;
     }
+    public void setItem(Item item){
+        this.item=item;
+    }
+    public void printData(){
+        
+    }
+ 
 
     /**
      * An example of a method - replace this comment with your own
@@ -60,62 +70,3 @@ public class Invoice
         return x + y;
     }
 }
-=======
-    protected int id;
-    protected int iditem;
-    protected String date;
-    protected int totalprice;
-
-
-    public Invoice()
-    {
-
-    }
-
-    public int getId()
-    {
-        return 0;
-    }
-    
-    public int getiditem()
-    {
-        return 0;
-    }
-    
-    public String getdate()
-    {
-        return "";
-    }
-    
-    public int gettotalPrice()
-    {
-        return 0;
-    }
-    
-   
-    public int setId(int id)
-    {
-        return 0;
-    }
-    
-    public int setidItem(int idItem)
-    {
-        return 0;
-    }
-    
-    public String setdate(String date)
-    {
-        return "";
-    }
-    
-    public int settotalPrice(int totalPrice)
-    {
-        return 0;
-    }
-    
-    public String setCategory(String category)
-    {
-        return "";
-    }
-}
->>>>>>> d359b91b709b33ac96a60484eb0e525bb346e6c7
