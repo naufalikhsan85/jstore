@@ -8,8 +8,8 @@
  */
 public class DatabaseItem{
 	// instance variables //
-    private String listItem[];
-    private Item item;
+    public String listItem[];
+    public static Item itemDB;
 	/**
      * Constructor for objects of class DatabaseItem
      */
@@ -20,7 +20,8 @@ public class DatabaseItem{
 	 * @return true
 	 * @param item
      */
-    public boolean addItem(Item item){
+    public static boolean addItem(Item item){
+     itemDB=item;
      return true;
     }
      /**
@@ -36,7 +37,7 @@ public class DatabaseItem{
 	 * @return item
      */
     public Item getItem(){
-     return item;
+     return itemDB;
     }
 	 /**
      * method untuk mengambil ItemDatabase

@@ -9,25 +9,25 @@
 public class Item
 {
     // instance variables - replace the example below with your own
-    private int x;
     private int id;
     private String name;
     private int stock;
     private int price;
     private Supplier supplier;
-    private String category;
+    private ItemCategory category;
+    private ItemStatus status;
 
     /**
      * Constructor for objects of class Item
      */
-    public Item(int id,String name,int stock,int price, String category)
+    public Item(int id,String name,int stock,int price,ItemStatus status,Supplier supplier,ItemCategory category)
     {
        this.id=id;
        this.name=name;
        this.stock=stock;
        this.supplier=supplier;
-       this.category=category;
        this.price=price; 
+       this.category=category;
     }
     /**
      *method untuk mendapatkan nilai id
@@ -63,8 +63,11 @@ public class Item
      * method untuk mendapatkan nilai category
      * @return to category
      */
-    public String getCategory(){
+    public ItemCategory getCategory(){
         return category;
+    }
+    public ItemStatus getStatus(){
+        return status;
     }
     /**
      * method untuk mendapatkan nilai supplier
@@ -105,8 +108,11 @@ public class Item
      * method untuk melakukan set nilai category
      * @param category
      */
-    public void setCategory(String category){
+    public void setCategory(ItemCategory category){
         this.category=category;
+    }
+    public void setStatus(ItemStatus status){
+        this.status=status;
     }
     /**
      * method untuk melakukan set nilai supplier
@@ -121,23 +127,22 @@ public class Item
      * @param no param
      * @return no return
      */
-    public static void printData()
-    {
-        
-    }
-    
-
+    public void printData(){
+    System.out.println("==========ITEM=======");
+    System.out.println("ID :" + id);
+    System.out.println("Name :"  + name );
+    System.out.println("Stok :" + stock);
+    System.out.println("Kategori :" + category);
+    System.out.println("Status :" + status);
+    System.out.println("Supplier :" + supplier);    
+}
     /**
      * An example of a method - replace this comment with your own
      *
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+   
 }
 
 

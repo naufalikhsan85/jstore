@@ -21,7 +21,7 @@
      *  @param supplier
      *  
      */
-    public boolean addSupplier(Supplier supplier){
+    static public boolean addSupplier(Supplier supplier){
      return true;
     }
     /**
@@ -49,6 +49,6 @@
      * 
      */
     public String[] getListSupplier(){
-    return getListSupplier;
+    return listSupplier;
     }
 }
