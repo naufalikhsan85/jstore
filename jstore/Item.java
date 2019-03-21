@@ -134,7 +134,7 @@ public class Item
     System.out.println("Stok :" + stock);
     System.out.println("Kategori :" + category);
     System.out.println("Status :" + status);
-    System.out.println("Supplier :" + supplier);    
+    System.out.println("Supplier :" + supplier.getName());    
 }
     /**
      * An example of a method - replace this comment with your own

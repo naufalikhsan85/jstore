@@ -8,7 +8,7 @@
  */
 public class DatabaseItem{
 	// instance variables //
-    public String listItem[];
+    public static String listItem[];
     public static Item itemDB;
 	/**
      * Constructor for objects of class DatabaseItem
@@ -36,7 +36,7 @@ public class DatabaseItem{
      * method untuk mengambil data class Item
 	 * @return item
      */
-    public Item getItem(){
+    public static Item getItem(){
      return itemDB;
     }
 	 /**

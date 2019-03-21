@@ -11,18 +11,22 @@ public class Jstore
         // instance variables - replace the example below with your own
         public static void main(String[] args){
       
-         Location location1 = new Location("DKI Jakarta", "Zona Merah", "Jakarta");
-        Supplier supplier1 = new Supplier(1, "naufal", "naufal@gmail.com", "081310275390", location1);      
+        ItemStatus status = ItemStatus.New;
+        ItemCategory kategori = ItemCategory.Electronics;
+        Location lokasi = new Location("Jakarta", "DKI Jakarta", "Tanjung priok");
+        Supplier baru = new Supplier(1, "Naufal", "naufal.ikhsan@ui.ac.id", "0878883520752", lokasi);
+        lokasi.printData();
+        baru.printData();
+        Item barang = new Item(1,"Playstation",1,12000000,status,baru, kategori);
         
-        location1.printData();
-        supplier1.printData();
         
-        Transaction.orderNewItem(supplier1);
-        Transaction.sellItemPaid(DatabaseItem.itemDB);
-        Transaction.orderSecondItem(supplier1);
-        Transaction.sellItemUnpaid(DatabaseItem.itemDB);
-        Transaction.orderRefurbishedItem(supplier1);
-        Transaction.sellItemInstallment(DatabaseItem.itemDB);
+        DatabaseItem.addItem(barang);
+        Transaction.orderNewItem(DatabaseItem.getItem());
+        Transaction.orderSecondItem(DatabaseItem.getItem());
+        Transaction.orderRefurbishedItem(DatabaseItem.getItem());
+        Transaction.sellItemPaid(DatabaseItem.getItem());
+        Transaction.sellItemUnpaid(DatabaseItem.getItem());
+        Transaction.sellItemInstallment(DatabaseItem.getItem());
 }
     /**
      * Constructor for objects of class Jstore
