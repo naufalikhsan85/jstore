@@ -78,4 +78,7 @@ public class Location
        System.out.println("Deksripsi :" + description);
     }
     
+    public String toString(){
+        return "========SUPPLIER=========\nID: "+id+"nama: "+"\nnama: "+name+"\nemail: "+email+"\nnomor telepon: "+phoneNumber+"\nlokasi: "+location.getCity()+", "+location.getProvince();
+    }
 }

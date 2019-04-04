@@ -8,7 +8,7 @@
  */
     public class DatabaseSupplier{
      // instance variables //
-    private String listSupplier[];
+    private Supplier[] listSupplier;
     private Supplier supplier;
     /**
      * Constructor for objects of class DatabaseSupplier
@@ -48,7 +48,7 @@
      *  @param no param
      * 
      */
-    public String[] getListSupplier(){
-    return listSupplier;
-    }
+    
+    
+    
 }

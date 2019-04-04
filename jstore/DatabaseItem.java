@@ -10,6 +10,7 @@ public class DatabaseItem{
 	// instance variables //
     public static String listItem[];
     public static Item itemDB;
+    private Item[] listItem;
 	/**
      * Constructor for objects of class DatabaseItem
      */

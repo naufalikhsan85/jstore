@@ -25,4 +25,6 @@ comment7.text=\r\n\ method\ untuk\ melakukan\ set\ nilai\ city\r\n\ @param\ city
 comment8.params=
 comment8.target=void\ printData()
 comment8.text=\r\n\ method\ untuk\ melakukan\ print\ data\ dari\ class\ location\r\n\ @return\ no\ return\r\n\ @param\ no\ param\r\n
-numComments=9
+comment9.params=
+comment9.target=java.lang.String\ toString()
+numComments=10

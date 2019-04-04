@@ -12,7 +12,7 @@
 public class Transaction
 {
     public static void orderNewItem(Item item){
-        Invoice invoiceNewItem = new Buy_Paid(11, item, "13/12/2019", 13, item.getPrice());
+        Invoice invoiceNewItem = new Buy_Paid(11, item,  13, item.getPrice());
         
         if (invoiceNewItem instanceof Sell_Paid)
         {

@@ -11,14 +11,9 @@ public class Buy_Paid extends Invoice
     private InvoiceType INVOICE_TYPE;
     private InvoiceStatus INVOICE_STATUS;
 
-
-
-    public Buy_Paid(int id,Item item,String date,int totalItem,int totalPrice)
+    public Buy_Paid(int id, Item item,int totalItem)
     {
-        
-        super(id,item,date,totalItem,totalPrice);
-        this.INVOICE_TYPE=INVOICE_TYPE;
-        this.INVOICE_STATUS=INVOICE_STATUS;
+        super(id,  item, totalItem);
     }
     
     public InvoiceStatus getInvoiceStatus(){
@@ -28,14 +23,16 @@ public class Buy_Paid extends Invoice
         return INVOICE_TYPE;
     }
     
-    public void printData()
+    public void setInvoiceStatus(InvoiceStatus status){
+    }
+    
+    
+    public  String toString()
     {
-            System.out.println("==========INVOICE=======");
-            System.out.println("ID :" + getId());
-            System.out.println("Date :" + getDate());
-            System.out.println("Item yang terdapat :" + getItem());
-            System.out.println("Total Item :" + getTotalItem());
-            System.out.println("Total harga :" + getTotalPrice());
-            System.out.println("Status :" + getInvoiceStatus());
+        return "===== Invoice =====" + "ID: " + this.getId() + "Item: " + this.getItem().getName() + "Amount:"
+                + this.getTotalItem() + "Buy Date: " + this.getDate() + "Price: " + this.getItem().getPrice()
+                + "Price total: " + this.getTotalPrice() + "Supplier ID: " + this.getItem().getSupplier().getId()
+                + "Supplier name: " + this.getItem().getSupplier().getName() + "status: " + this.INVOICE_STATUS
+                + "Buy success";
     }
 }

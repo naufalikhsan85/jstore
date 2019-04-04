@@ -7,18 +7,20 @@
  */
 public class Sell_Installment extends Invoice
 {
-    private static final InvoiceType INVOICE_TYPE = InvoiceType.Sell;
-    private static final InvoiceStatus INVOICE_STATUS = InvoiceStatus.Installment;
+    private InvoiceType INVOICE_TYPE ;
+    private InvoiceStatus INVOICE_STATUS ;
     private int installmentPeriod;
     private int installmentPrice;
+    private Customer customer;
 
     /**
      * Constructor for objects of class Buy_Paid
      */
-    public Sell_Installment (int id, Item item, String date, int totalItem, int totalPrice, int installmentPeriod)
+    public Sell_Installment (int id, Item item, int totalItem, int installmentPeriod,Customer customer)
     {
-        super(id, item, date, totalItem, totalPrice);
+        super(id,  item, totalItem);
         this.installmentPeriod=installmentPeriod;
+        
     }
 
     /**
@@ -35,6 +37,12 @@ public class Sell_Installment extends Invoice
     public int getInstallmentPrice()
     {
         return installmentPrice;
+    }
+    public   void setInvoiceStatus(InvoiceStatus status){
+    }
+    public Customer getCustomer()
+    {
+        return customer;
     }
     
     public InvoiceStatus getInvoiceStatus()
@@ -55,7 +63,11 @@ public class Sell_Installment extends Invoice
     {
         totalPrice=installmentPrice*installmentPeriod;
     }
-
+    
+    public void setCustomer(Customer customer)
+    {
+        this.customer=customer;
+    }
     public void printData()
     {
             System.out.println("==========INVOICE=======");
@@ -65,5 +77,15 @@ public class Sell_Installment extends Invoice
             System.out.println("Total Item :" + getTotalItem());
             System.out.println("Total harga :" + getTotalPrice());
             System.out.println("Status :" + getInvoiceStatus());
+    }
+    
+    public  String toString()
+    {
+        return "===== Invoice =====" + "ID: " + this.getId() + "Item: " + this.getItem().getName() + "Amount:"
+                + this.getTotalItem() + "Buy Date: " + this.getDate() + "Price: " + this.getItem().getPrice()
+                + "Price total: " + this.getTotalPrice() + "Supplier ID: " + this.getItem().getSupplier().getId()
+                + "Supplier name: " + this.getItem().getSupplier().getName() + "Customer ID: "
+                + this.getCustomer().getId() + "Customer name: " + this.getCustomer().getName() + "status: "
+                + this.INVOICE_STATUS + "Installment Period: " + this.installmentPeriod + "Sell success";
     }
 }

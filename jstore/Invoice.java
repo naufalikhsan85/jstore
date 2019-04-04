@@ -5,27 +5,27 @@
  * @author (your name)
  * @version (a version number or a date)
  */
+import java.util.Calendar;
 public abstract class Invoice
 {
     // instance variables - replace the example below with your own
     private int id;
     private Item item;
-    private String date;
+    private Calendar date=Calendar.getInstance();
     protected int totalPrice;
     private int totalItem;
-    private InvoiceStatus status;
-    private InvoiceType type;
+    
     
     /**
      * Constructor for objects of class Invoice
      */
-    public Invoice(int id, Item item, String date, int totalItem, int totalPrice)
+    public Invoice(int id, Item item,int totalItem)
     {
         // initialise instance variables
         this.id = id;
         this.item = item;
         this.date = date;
-        this.totalPrice = totalPrice;
+        this.totalPrice=totalItem*item.getPrice();
         this.totalItem = totalItem;
     }
 
@@ -56,7 +56,7 @@ public abstract class Invoice
      * a method to get value of date of invoice
      * @return   the value of date variables as String types
      */
-    public String getDate()
+    public Calendar getDate()
     {
         
         return date;
@@ -109,7 +109,7 @@ public abstract class Invoice
      * a method to set value of date of invoice
      * @param date as String for replacing date of invoice
      */
-    public void setDate(String date)
+    public void setDate(Calendar date)
     {
         
         this.date = date; // use this as the variables name is same
@@ -123,7 +123,7 @@ public abstract class Invoice
     public void setTotalPrice(int totalPrice)
     {
         
-        this.totalPrice= totalPrice; // use this as the variables name is same
+         this.totalPrice=totalItem*item.getPrice();// use this as the variables name is same
    
     }
     
@@ -134,19 +134,17 @@ public abstract class Invoice
    
     }
     
-    public void setInvoiceStatus(InvoiceStatus status)
-    {
-        
-        this.status= status; // use this as the variables name is same
-   
-    }
+    public  abstract void setInvoiceStatus(InvoiceStatus status);
     
     /**
      * printData method
      * a method to print totalPrice to terminal
      */
-    public abstract void printData();
     
     
+    public  String toString()
+    {
+        return ("");
+    }
     
 }
