@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * Write a description of class Buy_Paid here.
  *
@@ -11,13 +11,12 @@ public class Sell_Paid extends Invoice
     private InvoiceType INVOICE_TYPE;
     private InvoiceStatus INVOICE_STATUS;
     private Customer customer;
+    private boolean isActive;
 
-
-    public Sell_Paid(int id, Item item,int totalItem,Customer customer)
+    public Sell_Paid(ArrayList<Integer> item)
     {
-        
-        super(id,  item, totalItem);
-        
+        super(item);
+        this.isActive=false;
     }
     public void setInvoiceStatus(InvoiceStatus status){
     }
@@ -37,18 +36,13 @@ public class Sell_Paid extends Invoice
             System.out.println("ID :" + getId());
             System.out.println("Date :" + getDate());
             System.out.println("Item yang terdapat :" + getItem());
-            System.out.println("Total Item :" + getTotalItem());
+          
             System.out.println("Total harga :" + getTotalPrice());
             System.out.println("Status :" + getInvoiceStatus());
     }
     
     public  String toString()
     {
-       return "===== Invoice =====" + "ID: " + this.getId() + "Item: " + this.getItem().getName() + "Amount:"
-                + this.getTotalItem() + "Buy Date: " + this.getDate() + "Price: " + this.getItem().getPrice()
-                + "Price total: " + this.getTotalPrice() + "Supplier ID: " + this.getItem().getSupplier().getId()
-                + "Supplier name: " + this.getItem().getSupplier().getName() + "Customer ID: "
-                + this.getCustomer().getId() + "Customer name: " + this.getCustomer().getName() + "status: "
-                + this.INVOICE_STATUS + "Sell success";
+       return "";
     }
 }

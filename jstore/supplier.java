@@ -9,12 +9,11 @@
 public class Supplier
 {
     // instance variables //
-    private int x;
+    
     protected int id;
     protected String name;
     protected String email;
     protected String phoneNumber;
-    protected String city;
     protected Location location;
 
     /**
@@ -23,11 +22,11 @@ public class Supplier
     public Supplier(int id,String name, String email,String phoneNumber,
                     Location location)
     {
-       this.location=location;
-       this.phoneNumber=phoneNumber;
-       this.email=email;
-       this.name=name;
-       this.id=id; 
+        id=DatabaseSupplier.getLastSupplierId()+1;
+        this.name=name;
+        this.email=email;
+        this.phoneNumber=phoneNumber;
+        this.location=location;
     }
     /**method untuk mendapatkan nilai id
      * @return to id
@@ -68,9 +67,7 @@ public class Supplier
      * method untuk mendapatkan nilai city
      * @return to city
      */
-    public String getCity(){
-        return city;
-    }
+
     /**
      * method untuk melakukan set nilai id
      * @param int id
@@ -122,7 +119,12 @@ public class Supplier
     
     public  String toString()
     {
-        return ("");
+        return "SUPPLIER"+
+        "\nID: " + id+
+        "\nName: " + name+
+        "\nEmail: " + email+
+        "\nPhone Number: " + phoneNumber+
+        "\nLocation: " + location.getCity();
     }
 
     

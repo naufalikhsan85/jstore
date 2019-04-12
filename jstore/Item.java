@@ -22,7 +22,7 @@ public class Item
      */
     public Item(int id,String name,int stock,int price,ItemStatus status,Supplier supplier,ItemCategory category)
     {
-       this.id=id;
+       id=DatabaseItem.getLastItemId()+1;
        this.name=name;
        this.stock=stock;
        this.supplier=supplier;
@@ -140,8 +140,14 @@ public class Item
 
 
     public  String toString()
-    {
-       return ("");
+   {
+        return "==========ITEM======="+
+        "\nID :" + id+
+        "\nName :"  + name+
+        "\nStok :" + stock+
+        "\nKategori :" + category+
+        "\nStatus :" + status+
+        "\nSupplier :" + supplier.getName();
     }
     
    

@@ -6,27 +6,25 @@
  * @version (a version number or a date)
  */
 import java.util.Calendar;
+import java.util.ArrayList;
 public abstract class Invoice
 {
     // instance variables - replace the example below with your own
     private int id;
-    private Item item;
-    private Calendar date=Calendar.getInstance();
-    protected int totalPrice;
-    private int totalItem;
+    private ArrayList<Integer> item;
+    private Calendar date;
+    public int totalPrice;
+    private boolean isActive;
+    private Customer customer;
     
     
     /**
      * Constructor for objects of class Invoice
      */
-    public Invoice(int id, Item item,int totalItem)
+    public Invoice(ArrayList<Integer> item)
     {
-        // initialise instance variables
-        this.id = id;
-        this.item = item;
-        this.date = date;
-        this.totalPrice=totalItem*item.getPrice();
-        this.totalItem = totalItem;
+       id = DatabaseInvoice.getLastInvoiceID() + 1;
+       this.item = item;
     }
 
     /**
@@ -36,7 +34,6 @@ public abstract class Invoice
      */
     public int getId()
     {
-        
         return id;
     }
     
@@ -45,11 +42,21 @@ public abstract class Invoice
      * a method to get value of item of invoice
      * @return   the value of item variables as Item types
      */
-    public Item getItem()
+    public ArrayList<Integer> getItem()
     {
-        
         return item;
     }
+    
+    public Customer getCustomer()
+    {
+        return customer;
+       
+    }
+    public boolean getIsActive()
+    {
+        return isActive;
+    }
+    
     
     /**
      * getDate getter method
@@ -61,7 +68,10 @@ public abstract class Invoice
         
         return date;
     }
-    
+    public void setIsActive(boolean isActive)
+    {
+        this.isActive=isActive;
+    }
     /**
      * getTotalPrice getter method
      * a method to get value of total price of invoice
@@ -73,10 +83,7 @@ public abstract class Invoice
         return totalPrice;
     }
     
-    public int getTotalItem()
-    {
-        return totalItem;
-    }
+    
     
     public abstract InvoiceStatus getInvoiceStatus();
     
@@ -98,7 +105,7 @@ public abstract class Invoice
      * a method to set value of item of invoice
      * @param item as Item types for replacing the item
      */
-    public void setItem(Item item)
+    public void setItem(ArrayList<Integer>item)
     {
         
         this.item = item; // use this as the variables name is same
@@ -123,17 +130,10 @@ public abstract class Invoice
     public void setTotalPrice(int totalPrice)
     {
         
-         this.totalPrice=totalItem*item.getPrice();// use this as the variables name is same
+         this.totalPrice=totalPrice;// use this as the variables name is same
    
     }
-    
-    public void setTotalItem(int totalItem)
-    {
-        
-        this.totalItem= totalItem; // use this as the variables name is same
-   
-    }
-    
+
     public  abstract void setInvoiceStatus(InvoiceStatus status);
     
     /**
@@ -144,7 +144,7 @@ public abstract class Invoice
     
     public  String toString()
     {
-        return ("");
+     return"";
     }
     
 }

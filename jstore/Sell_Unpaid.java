@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * Write a description of class Sell_Unpaid here.
  *
@@ -13,16 +13,15 @@ public class Sell_Unpaid extends Invoice
     private static InvoiceStatus INVOICE_STATUS=InvoiceStatus.Unpaid;
     private Calendar dueDate;
     private Customer customer;
+    private boolean isActive;
     /**
      * Constructor for objects of class Sell_Unpaid
      */
-    public Sell_Unpaid(int id, Item item,  int totalItem,Customer customer)
+    public Sell_Unpaid(ArrayList<Integer> item,Customer customer)
     {
-        super(id,  item, totalItem);
-        this.dueDate=dueDate;
-        this.customer=customer;
-        this.dueDate = Calendar.getInstance();
-        this.dueDate.add(Calendar.DATE, +1);
+        super(item);
+        this.isActive=true;
+        this.customer = customer;
     }
     public void setInvoiceStatus(InvoiceStatus status){
     }
@@ -51,27 +50,9 @@ public class Sell_Unpaid extends Invoice
     {
         this.dueDate=dueDate;
     }
-    public void printData()
-    {
-            System.out.println("==========INVOICE=======");
-            System.out.println("ID :" + getId());
-            System.out.println("Date :" + getDate());
-            System.out.println("Item yang terdapat :" + getItem());
-            System.out.println("Total Item :" + getTotalItem());
-            System.out.println("Total harga :" + getTotalPrice());
-            System.out.println("Status :" + getInvoiceStatus());
-    
- 
-    }
-    
+
     public  String toString()
     {
-        return "===== Invoice =====" + "ID: " + this.getId() + "Item: " + this.getItem().getName() + "Amount:"
-                + this.getTotalItem() + "Buy Date: " + this.getDate() + "Price: " + this.getItem().getPrice()
-                + "Price total: " + this.getTotalPrice() + "Supplier ID: " + this.getItem().getSupplier().getId()
-                + "Supplier name: " + this.getItem().getSupplier().getName() + "Customer ID: "
-                + this.getCustomer().getId() + "Customer name: " + this.getCustomer().getName() + "Status: "
-                + this.INVOICE_STATUS + "Due date: " + this.dueDate
-                + "If payment is not received by due date, transcation will be canceled";
+         return "ID = \n" + "Item = \n" + "Amount = \n" + "Buy date = \n" + "Price = \n" + "Price total = \n" + "Supplier ID = \n" + "Supplier name = \n" + "Customer ID = \n" + "Customer name = \n" + "Status = UNPAID \n" + "Due date = \n" + "If payment is not received by dueDate, transaction will be cancelled.";
     }
 }

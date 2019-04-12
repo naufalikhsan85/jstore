@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * Write a description of class Buy_Paid here.
  *
@@ -7,20 +7,22 @@
  */
 public class Sell_Installment extends Invoice
 {
-    private InvoiceType INVOICE_TYPE ;
-    private InvoiceStatus INVOICE_STATUS ;
+    private InvoiceType INVOICE_TYPE =InvoiceType.Sell; 
+    private InvoiceStatus INVOICE_STATUS =InvoiceStatus.Installment;
     private int installmentPeriod;
     private int installmentPrice;
     private Customer customer;
+    private boolean isActive;
 
     /**
      * Constructor for objects of class Buy_Paid
      */
-    public Sell_Installment (int id, Item item, int totalItem, int installmentPeriod,Customer customer)
+    public Sell_Installment (ArrayList<Integer> item,int installmentPeriod,Customer customer)
     {
-        super(id,  item, totalItem);
-        this.installmentPeriod=installmentPeriod;
-        
+        super(item);
+        this.isActive=true;
+        this.customer = customer;
+        this.installmentPeriod = installmentPeriod;
     }
 
     /**
@@ -38,7 +40,7 @@ public class Sell_Installment extends Invoice
     {
         return installmentPrice;
     }
-    public   void setInvoiceStatus(InvoiceStatus status){
+    public void setInvoiceStatus(InvoiceStatus status){
     }
     public Customer getCustomer()
     {
@@ -55,7 +57,7 @@ public class Sell_Installment extends Invoice
     }
 
     public void setInstallmentPrice(int totalPrice){
-        installmentPrice=(totalPrice*(102/100))/installmentPeriod;
+        installmentPrice=getTotalPrice() / installmentPeriod * 102/100;
 
     }
 
@@ -68,24 +70,11 @@ public class Sell_Installment extends Invoice
     {
         this.customer=customer;
     }
-    public void printData()
-    {
-            System.out.println("==========INVOICE=======");
-            System.out.println("ID :" + getId());
-            System.out.println("Date :" + getDate());
-            System.out.println("Item yang terdapat :" + getItem());
-            System.out.println("Total Item :" + getTotalItem());
-            System.out.println("Total harga :" + getTotalPrice());
-            System.out.println("Status :" + getInvoiceStatus());
-    }
+   
     
     public  String toString()
     {
-        return "===== Invoice =====" + "ID: " + this.getId() + "Item: " + this.getItem().getName() + "Amount:"
-                + this.getTotalItem() + "Buy Date: " + this.getDate() + "Price: " + this.getItem().getPrice()
-                + "Price total: " + this.getTotalPrice() + "Supplier ID: " + this.getItem().getSupplier().getId()
-                + "Supplier name: " + this.getItem().getSupplier().getName() + "Customer ID: "
-                + this.getCustomer().getId() + "Customer name: " + this.getCustomer().getName() + "status: "
-                + this.INVOICE_STATUS + "Installment Period: " + this.installmentPeriod + "Sell success";
+           return "ID = \n" + "Item = \n" + "Amount = \n" + "Buy date = \n" + "Price = \n" + "Price total = \n" + "Supplier ID = \n" + "Supplier name = \n" + "Customer ID = \n" + "Customer name = \n" + "Status = INSTALLMENT \n" + "Sell success.";
+
     }
 }
