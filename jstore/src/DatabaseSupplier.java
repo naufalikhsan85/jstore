@@ -25,9 +25,16 @@
             return LAST_SUPPLIER_ID;
         }
 
-        public static int getSupplier() {
-            return supplier;
+        public static Supplier getSupplier(int id) {
+            Supplier hasil = null;
+            for (Supplier supplier1 : SUPPLIER_DATABASE) {
+                if (supplier1.getId() == id) {
+                    hasil = supplier1;
+                }
+            }
+            return hasil;
         }
+
 
 
         public static boolean addSupplier(Supplier supplier) throws SupplierAlreadyExistsException {
@@ -44,7 +51,7 @@
         }
 
 
-        public static boolean removeSupplier(int id)
+        public static boolean removeSupplier(int id) throws SupplierNotFoundException
         {
             try {
                 for (Supplier i : SUPPLIER_DATABASE

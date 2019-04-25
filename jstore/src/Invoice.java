@@ -11,7 +11,7 @@ public abstract class Invoice
 {
     // instance variables - replace the example below with your own
     private int id;
-    private ArrayList<Integer> item;
+    public ArrayList<Integer> item;
     private Calendar date;
     public int totalPrice;
     private boolean isActive;
