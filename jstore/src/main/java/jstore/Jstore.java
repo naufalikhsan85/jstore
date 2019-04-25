@@ -1,36 +1,73 @@
-package jstore;import java.util.ArrayList;
+package jstore;
+
+import java.util.ArrayList;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 @SpringBootApplication
 
-public class Jstore {
+
+public class JStore
+{
+    
+    
+    public static void main(String [] args)
+    {
+        SpringApplication.run(JStore.class, args);
 
 
-    public static void main(String[] args) {
-        Location location1 = new Location("Jakarta", "Jakarta Utara", "Tanjung priok");
+        Location location1 = new Location("Jakarta","DKI Jakarta","Tanjung Priok");
         try {
-            DatabaseSupplier.addSupplier(new Supplier("Naufal", "naufal@gmail.com", "0240000002", location1));
+            Database_Supplier.addSupplier(new Supplier("NaufalIkhsan11","Naufal77@gmail.com", "087893520752", location1));
         } catch (SupplierAlreadyExistsException e) {
             System.out.println(e.getExMessage());
         }
         try {
-            DatabaseSupplier.addSupplier(new Supplier("Naufal75", "Naufal75@gmail.com", "0240000001", location1));
+            Database_Supplier.addSupplier(new Supplier("Annisa","Annisa@gmail.com", "087883570752", location1));
         } catch (SupplierAlreadyExistsException e) {
             System.out.println(e.getExMessage());
         }
         try {
-            DatabaseSupplier.addSupplier(DatabaseSupplier.getSupplier(1));
+            Database_Supplier.addSupplier(new Supplier("Ananta","Ananta@gmail.com", "087888520752", location1));
+        } catch (SupplierAlreadyExistsException e) {
+            System.out.println(e.getExMessage());
+        }
+        try {
+            Database_Supplier.addSupplier(Database_Supplier.getSupplier(1));
         } catch (SupplierAlreadyExistsException e) {
             System.out.println(e.getExMessage());
         }
 
+
         try {
-            DatabaseCustomer.addCustomer(new Customer("Islamilenia", "Islamilenia@yahoo.com", "FebAkun", "12345", 2000, 04, 05));
+            Database_Item.addItem(new Item("TRAFO", ItemStatus.New, 4500000, Database_Supplier.getSupplier(1), ItemCategory.Electronics));
+        } catch (ItemAlreadyExistsException e) {
+            System.out.println(e.getExMessage());
+        }
+        try {
+            Database_Item.addItem(new Item("SOLDER", ItemStatus.New, 70000000, Database_Supplier.getSupplier(2), ItemCategory.Electronics));
+        } catch (ItemAlreadyExistsException e) {
+            System.out.println(e.getExMessage());
+        }
+        try {
+            Database_Item.addItem(new Item("GENSET", ItemStatus.New, 89000000, Database_Supplier.getSupplier(3), ItemCategory.Electronics));
+        } catch (ItemAlreadyExistsException e) {
+            System.out.println(e.getExMessage());
+        }
+        try {
+            Database_Item.addItem(Database_Item.getItemFromID(1));
+        } catch (ItemAlreadyExistsException e) {
+            System.out.println(e.getExMessage());
+        }
+
+
+        /*try {
+            DatabaseCustomer.addCustomer(new Customer("Jamaludin Akbar", "jamalunta@rocketmail.com", "Jamal.Unta", "ciscoenpa55", 1998, 01, 01));
         } catch (CustomerAlreadyExistsException e) {
             System.out.println(e.getExMessage());
         }
         try {
-            DatabaseCustomer.addCustomer(new Customer("Arum", "Arum@gmail.com", "wibubaubawang", "12345", 1999, 11, 06));
+            DatabaseCustomer.addCustomer(new Customer("Cahyadi Bayu", "bayaya@rocketmail.com", "Bayuyu", "ciscoconpa55", 1998, 02, 02));
         } catch (CustomerAlreadyExistsException e) {
             System.out.println(e.getExMessage());
         }
@@ -41,17 +78,17 @@ public class Jstore {
         }
 
         try {
-            DatabaseItem.addItem(new Item("Router 1941", ItemStatus.New, 4500000, DatabaseSupplier.getSupplier(1), ItemCategory.Electronics));
+            Database_Item.addItem(new Item("Router 1941", ItemStatus.New, 4500000, Database_Supplier.getSupplier(1), ItemCategory.Electronics));
         } catch (ItemAlreadyExistsException e) {
             System.out.println(e.getExMessage());
         }
         try {
-            DatabaseItem.addItem(new Item("Switch", ItemStatus.New, 70000000, DatabaseSupplier.getSupplier(2), ItemCategory.Electronics));
+            Database_Item.addItem(new Item("Switch", ItemStatus.New, 70000000, Database_Supplier.getSupplier(2), ItemCategory.Electronics));
         } catch (ItemAlreadyExistsException e) {
             System.out.println(e.getExMessage());
         }
         try {
-            DatabaseItem.addItem(DatabaseItem.getItemFromID(1));
+            Database_Item.addItem(Database_Item.getItemFromID(1));
         } catch (ItemAlreadyExistsException e) {
             System.out.println(e.getExMessage());
         }
@@ -78,7 +115,7 @@ public class Jstore {
         }
 
         try {
-            DatabaseSupplier.removeSupplier(100);
+            Database_Supplier.removeSupplier(100);
         } catch (SupplierNotFoundException e) {
             System.out.println(e.getExMessage());
         }
@@ -88,7 +125,7 @@ public class Jstore {
             System.out.println(e.getExMessage());
         }
         try {
-            DatabaseItem.removeItem(77);
+            Database_Item.removeItem(77);
         } catch (ItemNotFoundException e) {
             System.out.println(e.getExMessage());
         }
@@ -105,24 +142,38 @@ public class Jstore {
         }
 
 
-        ArrayList<Supplier> tempSupplier = DatabaseSupplier.getSupplierDatabase();
-        for (Supplier temp : tempSupplier) {
+
+
+        ArrayList<Supplier> tempSupplier = Database_Supplier.getSupplierDatabase();
+        for(Supplier temp: tempSupplier){
             System.out.println(temp);
         }
 
         ArrayList<Customer> tempCustomer = DatabaseCustomer.getCustomerDatabase();
 
-        for (Customer temp : tempCustomer) {
+        for(Customer temp: tempCustomer)
+        {
             System.out.println(temp);
         }
 
-        ArrayList<Item> tempItem = DatabaseItem.getItemDatabase();
-        for (Item temp : tempItem) {
+        ArrayList<Item> tempItem= Database_Item.getItemDatabase();
+        for(Item temp: tempItem)
+        {
             System.out.println(temp);
         }
+
+         */
 
 
     }
 
-}
 
+    public JStore()
+    {
+         
+    }
+
+    
+    
+    
+}

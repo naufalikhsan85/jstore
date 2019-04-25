@@ -1,41 +1,49 @@
-package jstore;import java.util.ArrayList;
-/**
- * Write a description of class DatabaseCostumer here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
+package jstore;
+
+import java.util.ArrayList;
 public class DatabaseCustomer
 {
+    //variabel yang dipakai
+    private static ArrayList<Customer> CUSTOMER_DATABASE=new ArrayList<Customer>();
+    private static int LAST_CUSTOMER_ID=0;
 
-   private static ArrayList<Customer> CUSTOMER_DATABASE=new ArrayList<Customer>();
-   private static int LAST_CUSTOMER_ID;
-
+    //Menambah supplier
     public static ArrayList<Customer> getCustomerDatabase()
     {
         return CUSTOMER_DATABASE;
     }
 
-    public static int getLastCustomer()
+
+    public static int getLastCustomerId()
     {
         return LAST_CUSTOMER_ID;
     }
 
+    //Menghapus supplier
+    /**
+     * Method remove Supplier()
+     * @param customer
+     */
     public static boolean addCustomer(Customer customer) throws CustomerAlreadyExistsException
     {
-        boolean value=false;
+
         for(Customer customerDB : CUSTOMER_DATABASE)
         {
-            if(customer.getName()!=customerDB.getName()||customer.getEmail()!=customerDB.getEmail())
+            if(customer.getName()==customerDB.getName()||customer.getEmail()==customerDB.getEmail())
             {
-            CUSTOMER_DATABASE.add(customer);
-            LAST_CUSTOMER_ID=customer.getId();
-            value=true;
+            throw new CustomerAlreadyExistsException(customer);
             }
         }
-        return value;
+        CUSTOMER_DATABASE.add(customer);
+        LAST_CUSTOMER_ID=customer.getId();
+        return true;
     }
 
+    //Menampilkan nama supplier
+    /**
+     * Method getSupplier()
+     * @return supplier
+     */
     public static Customer getCustomer(int id)
     {
         Customer value=null;
@@ -49,17 +57,38 @@ public class DatabaseCustomer
         return value;
     }
 
+
+
+    /**
+     * Method addSupplier()
+     * @param id
+     * @return false
+     */
     public static boolean removeCustomer(int id) throws CustomerNotFoundException
     {
-        boolean value=false;
+
         for(Customer customerDB : CUSTOMER_DATABASE)
         {
             if(customerDB.getId()==id)
             {
                 CUSTOMER_DATABASE.remove(id);
-                value=true;
+                return true;
             }
         }
-        return value;
+        throw new CustomerNotFoundException(id);
     }
+
+    public static Customer getCustomerLogin(String email, String password){
+        for (Customer customerPtr : CUSTOMER_DATABASE){
+            if (customerPtr.getEmail().equals(email) && customerPtr.getPassword().equals(password))
+            {
+                return customerPtr;
+            }
+        }
+        return null;
+    }
+
+
 }
+
+
