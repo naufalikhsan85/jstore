@@ -1,18 +1,17 @@
 package jstore;
 
-
 public enum InvoiceType
 {
-    Buy("Buy"),Sell("Sell");
-    String list;
-    
-    InvoiceType(String type)
-    {
-        this.list=type;
+    Buy {
+        public String toString() {
+            return "Buy";
+        }
     }
-    
-    public String toString()
-    {
-        return list;
+    ,
+    Sell {
+        public String toString() {
+            return "Sell";
+        }
     }
+ 
 }

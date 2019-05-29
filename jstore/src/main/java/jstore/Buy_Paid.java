@@ -1,12 +1,22 @@
 package jstore;
+/**
+ * Write a description of class Buy_Paid here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
-import java.util.*;
 public class Buy_Paid extends Invoice
 {
-    // instance variables - replace the example below with your own
-    private final static InvoiceType INVOICE_TYPE=InvoiceType.Buy;
-    private final static InvoiceStatus INVOICE_STATUS=InvoiceStatus.Paid;
+    
+    private static final InvoiceType INVOICE_TYPE= InvoiceType.Buy;
+    private static final InvoiceStatus INVOICE_STATUS= InvoiceStatus.Paid;
     private boolean isActive;
+
 
     /**
      * Constructor for objects of class Buy_Paid
@@ -14,32 +24,39 @@ public class Buy_Paid extends Invoice
     public Buy_Paid(ArrayList<Integer> item)
     {
         super(item);
-        this.isActive=false;
+        setisActive(false);
+        this.setTotalPrice();
     }
-    
+
+
     public InvoiceStatus getInvoiceStatus()
     {
+        // put your code here
         return INVOICE_STATUS;
     }
-    
     public InvoiceType getInvoiceType()
     {
+        // put your code here
         return INVOICE_TYPE;
     }
     
-    public void setInvoiceStatus(InvoiceStatus status)
-    {
-        
+    public void printData(){
+       /* System.out.println("==========INVOICE=======");
+        System.out.println("ID :" + getId());
+        System.out.println("Date :" + getDate());
+        System.out.println("Item yang terdapat :" + getItem().getName());
+        System.out.println("Total harga :" + getTotalPrice());
+        System.out.println("Status :" + getInvoiceStatus());*/
     }
     
-    public String toString()
-    {
-       String string="==========INVOICE=======";
+   public String toString() {
+       System.out.println("++++++++++++ BUY PAID ++++++++++++++++++");
+    String string="==========INVOICE=======";
         string += "\nID ="+getId();
         string += "\nBuy date =" + getDate();
         for (Integer invoice : getItem())
         {
-            Item item = Database_Item.getItemFromID(invoice.intValue());
+            Item item = DatabaseItem.getItemFromID(invoice.intValue());
             string += "\nItem: " + item.getName();
             string += "\nAmount: " + getItem().size();
             string += "\nPrice: " + item.getPrice();
@@ -48,15 +65,12 @@ public class Buy_Paid extends Invoice
         }
         string += "\nPrice Total: " + getTotalPrice();
         string += "\nStatus: " + INVOICE_STATUS;
-        if(isActive==true)
-        {
         string += "\nBuy Success";
-        }
-        else
-        {
-        string += "\nBuy Cancel";
-        }
         return string;
+ }
+    
+
+public void setInvoiceStatus(InvoiceStatus status){
+    
     }
- 
 }

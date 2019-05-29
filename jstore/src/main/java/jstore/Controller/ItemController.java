@@ -1,23 +1,22 @@
-package jstore.Controller;
+package jstore.controller;
 
 import jstore.*;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.ArrayList;
+import java.util.Calendar;
 
-public class ItemController
+@RestController
+public class ItemController {
 
-{
-    @RequestMapping(value= "/itemlist/", method= RequestMethod.GET)
-    public ArrayList<Item> itemlist()
-    {
-        ArrayList<Item> tempDatabaseItem = Database_Item.getItemDatabase();
-        return tempDatabaseItem;
-    }
-    @RequestMapping(value= "/items/{id_item}", method= RequestMethod.GET)
-    public Item getItemFromID(@PathVariable int id)
-    {
-        Item tempItem = Database_Item.getItemFromID(id);
-        return tempItem;
+    @RequestMapping(value = "/items", method = RequestMethod.GET)
+    public ArrayList<Item> itemList() {
+        return DatabaseItem.getItemDatabase();
     }
 
+    @RequestMapping(value = "/items/{id_item}", method = RequestMethod.GET)
+    public Item getItemFromID(@PathVariable int id_item) {
+        Item item = DatabaseItem.getItemFromID(id_item);
+        return item;
+    }
 }
